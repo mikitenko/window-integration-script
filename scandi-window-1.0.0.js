@@ -5,7 +5,7 @@
 	class ScandiWindow {
 		constructor(data) {
 			this.chatpage = (data.chatpage || 'go').toString().toLowerCase().replace(/^\s+|\s+$/g, '');
-			this.chatpage = this.chatpage.replace(/\s+/g,'_');
+			this.chatpage = this.chatpage.replace(/\s+/g, '_');
 			this.path = data.path || '';
 
 			this.chatpageName = '';
@@ -18,8 +18,8 @@
 
 			this.isOrigin = (
 				(window.location.hostname !== 'localhost') &&
-				(this.origin.indexOf(window.location.hostname.replace(location.hostname.split('.').shift(),'')) !== -1) &&
-				location.href !== this.origin.replace('w.','')
+				(this.origin.indexOf(window.location.hostname.replace(location.hostname.split('.').shift(), '')) !== -1) &&
+				location.href !== this.origin.replace('w.', '')
 			);
 
 			this.sButton = {
@@ -78,7 +78,7 @@
 			this.mobileClass = (
 				(/android|webos|iphone|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase())) ||
 				(window.innerWidth <= 600 && window.innerHeight <= 900)
-			) ? 'mobile': '';
+			) ? 'mobile' : '';
 			this.isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 
@@ -88,7 +88,7 @@
 		/**
 		 * Set Styles
 		 */
-		setupStyles(){
+		setupStyles() {
 			this.CSS = `
 				#${this.sButton.id}.d-visible-${this.chatpage}{
 					display:inline-block;
@@ -111,8 +111,8 @@
 				}
 				
 				#${this.sButton.id} #${this.sButton.id}-cover:after {
-				    display: block;
-				    clear: both;
+				  display: block;
+				  clear: both;
 					content: "";
 				} 
 				
@@ -122,7 +122,7 @@
 				}
 				
 				#${this.sButton.id} .${this.sButton.id}-message {
-					width: calc(100% - ${this.sButton.height+this.sButton.bPadding}px);
+					width: calc(100% - ${this.sButton.height + this.sButton.bPadding}px);
 					display: none;
 					position: relative;
 					float: left;
@@ -130,8 +130,8 @@
 					font-size:15px;
 					font-weight: bold;
 					padding-left: ${this.sButton.bPadding}px;
-					height: ${this.sButton.height-this.sButton.bPageNameHeight}px;
-					line-height: ${this.sButton.height-this.sButton.bPageNameHeight-3}px;
+					height: ${this.sButton.height - this.sButton.bPageNameHeight}px;
+					line-height: ${this.sButton.height - this.sButton.bPageNameHeight - 3}px;
 				}
 						
 				#${this.sButton.id} .${this.sButton.id}-message span.sc-button-message {
@@ -146,11 +146,11 @@
 					left: ${this.sButton.bPadding}px;
 					bottom: -${this.sButton.bPageNameHeight}px;
 					font-size: 12px;
-                    color: #9B9B9B;
-                    font-family:sans-serif;
-                    font-weight:normal;
-                    line-height: ${this.sButton.bPageNameHeight}px;
-                    height: ${this.sButton.bPageNameHeight}px;
+          color: #9B9B9B;
+          font-family:sans-serif;
+          font-weight:normal;
+          line-height: ${this.sButton.bPageNameHeight}px;
+          height: ${this.sButton.bPageNameHeight}px;
 				}
 				
 				#${this.sButton.id} .${this.sButton.id}-message span.sc-button-m {
@@ -165,20 +165,20 @@
 					padding: ${this.sButton.bPadding}px;
 					background: #ffffff;
 					box-shadow: 3px 3px 4px 0 rgba(219,219,219,0.5);
-					border-top-left-radius: ${(this.sButton.height/2)+this.sButton.bPadding+(this.sButton.bBorderWidth*2)}px;
-                    border-bottom-left-radius: ${(this.sButton.height/2)+this.sButton.bPadding+(this.sButton.bBorderWidth*2)}px;
+					border-top-left-radius: ${(this.sButton.height / 2) + this.sButton.bPadding + (this.sButton.bBorderWidth * 2)}px;
+          border-bottom-left-radius: ${(this.sButton.height / 2) + this.sButton.bPadding + (this.sButton.bBorderWidth * 2)}px;
 				}
 				
 				#${this.sButton.id} #${this.sButton.id}-cover.sc-show-button-message.sc-float-right {
 					border-top-left-radius: 0;
-                    border-bottom-left-radius: 0;
-                    border-top-right-radius: ${(this.sButton.height/2)+this.sButton.bPadding+(this.sButton.bBorderWidth*2)}px;
-                    border-bottom-right-radius: ${(this.sButton.height/2)+this.sButton.bPadding+(this.sButton.bBorderWidth*2)}px;
+          border-bottom-left-radius: 0;
+          border-top-right-radius: ${(this.sButton.height / 2) + this.sButton.bPadding + (this.sButton.bBorderWidth * 2)}px;
+          border-bottom-right-radius: ${(this.sButton.height / 2) + this.sButton.bPadding + (this.sButton.bBorderWidth * 2)}px;
 				}
 				
 				#${this.sButton.id} #${this.sButton.id}-cover.sc-show-button-message.sc-float-right .${this.sButton.id}-icon .sc-badge{
-				    right: auto;
-				    left: -5px;
+				  right: auto;
+				  left: -5px;
 				}
 				
 				#${this.sButton.id} #${this.sButton.id}-cover.sc-show-button-message.sc-float-right .${this.sButton.id}-message {
@@ -205,24 +205,24 @@
 				
 				#${this.sButton.id} #${this.sButton.id}-cover.sc-float-right .${this.sButton.id}-icon,
 				#${this.sButton.id} #${this.sButton.id}-cover.sc-float-right .${this.sButton.id}-message {
-				    float: right;
+				   float: right;
 				} 
 				
 				#${this.sButton.id} .${this.sButton.id}-icon .sc-badge{
 					display: none;
 					position: absolute;
-				    width: 27px;
-				    height: 27px;
-				    border-radius: 100%;
-				    background: #FF0000;
-				    top: -8px;
-				    right: -5px;
-				    box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);
-				    border: 1px solid #fff;
-				    font-size: 14px;
-				    color: #fff;
-				    text-align: center;
-				    line-height: 27px;
+				  width: 27px;
+				  height: 27px;
+				  border-radius: 100%;
+				  background: #FF0000;
+				  top: -8px;
+				  right: -5px;
+				  box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);
+				  border: 1px solid #fff;
+				  font-size: 14px;
+				  color: #fff;
+				  text-align: center;
+				  line-height: 27px;
 				}
 				
 				#${this.sButton.id}.sc-broadcast-badge .${this.sButton.id}-icon .sc-badge{
@@ -233,7 +233,7 @@
 					#${this.sButton.id}{
 						bottom: ${this.sButton.mBottom}px;
 						right: ${(this.sButton.mRight !== 'auto') ? this.sButton.mRight + 'px' : this.sButton.mRight};
-						left: ${(this.sButton.mLeft !== 'auto') ? this.sButton.mLeft+ 'px' : this.sButton.mLeft};
+						left: ${(this.sButton.mLeft !== 'auto') ? this.sButton.mLeft + 'px' : this.sButton.mLeft};
 					}
 					
 					#${this.sButton.id}.sc-broadcast-button-message {
@@ -267,7 +267,7 @@
 					height: ${(this.sWindow.height !== 'auto') ? this.sWindow.height + 'px' : this.sWindow.height};
 					right: ${(this.sWindow.right !== 'auto') ? this.sWindow.right + 'px' : this.sWindow.right};
 					left: ${(this.sWindow.left !== 'auto') ? (this.isOrigin ? (this.sWindow.left + '%') : (this.sWindow.left + 'px')) : this.sWindow.left};
-					margin-left: ${(this.isOrigin) ? '-' + this.sWindow.width/2 : 0}px;
+					margin-left: ${(this.isOrigin) ? '-' + this.sWindow.width / 2 : 0}px;
 					z-index:999999;
 					overflow:hidden;
 					font-family:sans-serif;
@@ -316,19 +316,19 @@
 				}
 				
 				#${this.sWindow.id} #scandi-window-body .scandi-lds-ring {
-				    display: inline-block;
-				    position: absolute;
-				    width: 64px;
-				    height: 64px;
-				    z-index: 1;
-				    top: 50%;
-				    left: 50%;
-				    margin-top: -64px;
-				    margin-left: -32px;
+				  display: inline-block;
+				  position: absolute;
+				  width: 64px;
+				  height: 64px;
+				  z-index: 1;
+				  top: 50%;
+				  left: 50%;
+				  margin-top: -64px;
+				  margin-left: -32px;
 				}
 				
 				#${this.sWindow.id} #scandi-window-body .scandi-lds-ring div {
-				    box-sizing: border-box;
+				  box-sizing: border-box;
 					display: block;
 					position: absolute;
 					width: 51px;
@@ -380,45 +380,45 @@
 				
 				#${this.sWindow.id} #scandi-window-footer #${this.sWindow.id}-login-promote img {
 					display: inline-block;
-				    width: 36px;
-				    height: 36px;
-				    border-radius: ${(this.sButton.icon.indexOf('/messages-logo.png') !== -1) ? '0' : '100%'};
-				    margin: ${(this.sButton.icon.indexOf('/messages-logo.png') !== -1) ? '6px 10px 0 10px' : '8px 10px 0 10px'};
-				    float: left;
+				  width: 36px;
+				  height: 36px;
+				  border-radius: ${(this.sButton.icon.indexOf('/messages-logo.png') !== -1) ? '0' : '100%'};
+				  margin: ${(this.sButton.icon.indexOf('/messages-logo.png') !== -1) ? '6px 10px 0 10px' : '8px 10px 0 10px'};
+				  float: left;
 				}
 
 				#${this.sWindow.id} #scandi-window-footer #${this.sWindow.id}-login-promote .scandi-chatpage-name {
 					display: inline-block;
-				    margin: 0;
-				    box-sizing: border-box;
-				    width: 150px;
-				    line-height: 16px;
-				    display: inline-block;
-				    vertical-align: middle;
-				    line-height: normal;
+				  margin: 0;
+				  box-sizing: border-box;
+				  width: 150px;
+				  line-height: 16px;
+				  display: inline-block;
+				  vertical-align: middle;
+				  line-height: normal;
 				}
 				
 				#${this.sWindow.id} #scandi-window-footer #${this.sWindow.id}-login-promote #${this.sWindow.id}-join-now-button {
 					display: inline-block;
 					float: right;
 					background: #7ED321;
-				    color: #fff;
-				    text-align: center;
-				    height: 35px;
-				    line-height: 34px;
-				    margin: 8px 10px 0 0;
-				    padding-left: 30px;
-				    padding-right: 30px;
-				    border-radius: 3px;
-				    font-size: 15px;
-				    cursor: pointer;
-				    text-decoration: none;
-				    -webkit-touch-callout: none;
-				    -webkit-user-select: none;
-				    -khtml-user-select: none;
-				    -moz-user-select: none;
-				    -ms-user-select: none;
-				    user-select: none;
+				  color: #fff;
+				  text-align: center;
+				  height: 35px;
+				  line-height: 34px;
+				  margin: 8px 10px 0 0;
+				  padding-left: 30px;
+				  padding-right: 30px;
+				  border-radius: 3px;
+				  font-size: 15px;
+				  cursor: pointer;
+				  text-decoration: none;
+				  -webkit-touch-callout: none;
+				  -webkit-user-select: none;
+				  -khtml-user-select: none;
+				  -moz-user-select: none;
+				  -ms-user-select: none;
+				  user-select: none;
 				}
 				
 				#${this.sWindow.id} #scandi-window-footer #f-ad{
@@ -436,10 +436,10 @@
 		/**
 		 * Set show hide Scandi window state
 		 */
-		setWindowState(){
+		setWindowState() {
 			const urlParams = new URLSearchParams(window.location.search);
 
-			if(urlParams.get('sw') || this.isOrigin) {
+			if (urlParams.get('sw') || this.isOrigin) {
 				this.showSWindow();
 			} else {
 				this.hideSWindow();
@@ -449,16 +449,16 @@
 		/**
 		 * Show Scandi window
 		 */
-		showSWindow(callback){
+		showSWindow(callback) {
 			this.addClass(this.sWindow.node, `d-visible-${this.chatpage}`);
 			this.removeClass(this.sButton.node, `d-visible-${this.chatpage}`);
-			if(!this.iframe.node) {
+			if (!this.iframe.node) {
 				this.deleteBroadcastIframe();
 				this.clearButtonData();
 				this.createIframe(callback);
 			} else {
 				this.iframe.node.contentWindow.postMessage('scandi-window-open', '*');
-				if(this.getType(callback) === '[object Function]') callback();
+				if (this.getType(callback) === '[object Function]') callback();
 			}
 			this.sWindow.hided = false;
 		}
@@ -466,19 +466,19 @@
 		/**
 		 * Hide Scandi window
 		 */
-		hideSWindow(){
+		hideSWindow() {
 			this.addClass(this.sButton.node, `d-visible-${this.chatpage}`);
 			this.removeClass(this.sWindow.node, `d-visible-${this.chatpage}`);
 			this.clearButtonData();
-			if(this.iframe.node) this.iframe.node.contentWindow.postMessage('scandi-window-close', '*');
+			if (this.iframe.node) this.iframe.node.contentWindow.postMessage('scandi-window-close', '*');
 			this.sWindow.hided = true;
 		}
 
 		/**
 		 * Show Scandi window
 		 */
-		showSWindowRouteNav(){
-			if(
+		showSWindowRouteNav() {
+			if (
 				this.iframe.node &&
 				this.iframe.node.contentWindow
 			) {
@@ -489,28 +489,29 @@
 		/**
 		 * Hide Scandi window
 		 */
-		hideSWindowRouteNav(){
-			if(
+		hideSWindowRouteNav() {
+			if (
 				this.iframe.node &&
 				this.iframe.node.contentWindow
 			) {
 				this.iframe.node.contentWindow.postMessage('scandi-hide-back-chatpage', '*');
 			}
 		}
+
 		/**
 		 * Update Scandi Button Data
 		 */
-		updateButtonData (data){
-			if(!this.sButton.node && !data.count) return;
+		updateButtonData(data) {
+			if (!this.sButton.node && !data.count) return;
 
-			if(this.sWindow.hided) this.clearWRouteHistory();
+			if (this.sWindow.hided) this.clearWRouteHistory();
 
 			this.addBadge(data.count);
 
 			this.sButton.iconNode.src = data.button_icon_url || this.sButton.icon;
 
 
-			if(data.button_message){
+			if (data.button_message) {
 				this.addClass(this.sButton.coverNode, 'sc-show-button-message');
 				this.addClass(this.sButton.node, 'sc-broadcast-button-message');
 
@@ -518,7 +519,7 @@
 
 				this.sButton.messageNode.innerText = data.button_message;
 
-				if(data.button_position.toLowerCase() === 'right'){
+				if (data.button_position.toLowerCase() === 'right') {
 					this.addClass(this.sButton.coverNode, 'sc-float-right');
 				} else {
 					this.removeClass(this.sButton.coverNode, 'sc-float-right');
@@ -534,7 +535,7 @@
 		/**
 		 * Clear Scandi Button Data
 		 */
-		clearButtonData (){
+		clearButtonData() {
 			this.clearBadge();
 
 			this.sButton.iconNode.src = this.sButton.icon;
@@ -546,8 +547,8 @@
 		/**
 		 * Add badge Scandi window button
 		 */
-		addBadge(count){
-			if(this.sButton.badgeCountNode) {
+		addBadge(count) {
+			if (this.sButton.badgeCountNode) {
 				this.sButton.badgeCountNode.innerText = count;
 				this.addClass(this.sButton.node, 'sc-broadcast-badge');
 			}
@@ -556,7 +557,7 @@
 		/**
 		 * Clear badge Scandi window
 		 */
-		clearBadge(){
+		clearBadge() {
 			this.sButton.badgeCountNode.innerText = 0;
 			this.removeClass(this.sButton.node, 'sc-broadcast-badge')
 		}
@@ -564,8 +565,8 @@
 		/**
 		 * Add to history
 		 */
-		addWRouteHistory(name){
-			if(
+		addWRouteHistory(name) {
+			if (
 				this.sWindow.routeHistory.length &&
 				this.sWindow.routeHistory[this.sWindow.routeHistory.length - 1] !== name
 			) {
@@ -574,7 +575,7 @@
 			} else if (
 				!this.sWindow.routeHistory.length &&
 				this.chatpage !== name
-			){
+			) {
 				this.sWindow.routeHistory.push(this.chatpage);
 				this.sWindow.routeHistory.push(name);
 				this.showSWindowRouteNav();
@@ -586,11 +587,11 @@
 		/**
 		 * Remove from history
 		 */
-		backStepWRouteHistory(){
+		backStepWRouteHistory() {
 			this.sWindow.routeHistory.pop();
-			if(this.sWindow.routeHistory.length) {
+			if (this.sWindow.routeHistory.length) {
 				this.routeToPage(this.sWindow.routeHistory[this.sWindow.routeHistory.length - 1]);
-				if(this.sWindow.routeHistory.length === 1) {
+				if (this.sWindow.routeHistory.length === 1) {
 					this.hideSWindowRouteNav();
 					this.sWindow.routeHistory = [];
 				}
@@ -603,7 +604,7 @@
 		/**
 		 * Clear history
 		 */
-		clearWRouteHistory(){
+		clearWRouteHistory() {
 			this.sWindow.routeHistory = [];
 			this.routeToPage(false);
 			this.hideSWindowRouteNav();
@@ -612,8 +613,8 @@
 		/**
 		 * Open home page
 		 */
-		routeToPage(name){
-			if(this.iframe.node) {
+		routeToPage(name) {
+			if (this.iframe.node) {
 				this.iframe.node.contentWindow.postMessage(`scandi-route-to:${name || this.chatpage}`, '*');
 			}
 		}
@@ -630,14 +631,14 @@
 		/**
 		 * Load QR reader link
 		 */
-		loadQrReaderLink(url){
+		loadQrReaderLink(url) {
 			window.location.replace(url);
 		}
 
 		/**
 		 * Create Scandi button
 		 */
-		createSButton(){
+		createSButton() {
 			let htmlTemplate = `<div id="${this.sButton.id}">
 									<div id="${this.sButton.id}-cover">
 										<div class="${this.sButton.id}-icon">
@@ -664,7 +665,7 @@
 		/**
 		 * Create Scandi window
 		 */
-		createSWindow(){
+		createSWindow() {
 			let htmlTemplate = `<div id="${this.sWindow.id}" class="${this.mobileClass}">
 									<div id="scandi-window-body">
 										<div class="scandi-lds-ring"><div></div><div></div><div></div><div></div></div>
@@ -693,10 +694,10 @@
 		/**
 		 * Create Iframe
 		 */
-		createIframe(callback){
+		createIframe(callback) {
 			let iframe = document.createElement('iframe');
 
-			iframe.id= this.iframe.id;
+			iframe.id = this.iframe.id;
 			iframe.frameBorder = this.iframe.frameBorder;
 			iframe.allowfullscreen = true;
 			iframe.allow = 'camera *;microphone *;';
@@ -705,9 +706,9 @@
 			iframe.src = `${this.iframe.src}&${window.location.search.substr(1)}`;
 			document.getElementById('scandi-window-body').appendChild(iframe);
 
-			iframe.addEventListener('load', function(){
+			iframe.addEventListener('load', function () {
 				this.deleteIframeLoader();
-				if(this.getType(callback) === '[object Function]') callback();
+				if (this.getType(callback) === '[object Function]') callback();
 			}.bind(this));
 
 			this.iframe.node = iframe;
@@ -716,10 +717,10 @@
 		/**
 		 * Create Broadcast Iframe
 		 */
-		createBroadcastIframe(){
+		createBroadcastIframe() {
 			let iframe = document.createElement('iframe');
 
-			iframe.id= `${this.iframe.id}-broadcast`;
+			iframe.id = `${this.iframe.id}-broadcast`;
 			iframe.frameBorder = this.iframe.frameBorder;
 			iframe.allowfullscreen = true;
 			iframe.width = 0;
@@ -734,14 +735,14 @@
 		/**
 		 * Delete Iframe Loader
 		 */
-		deleteIframeLoader (){
+		deleteIframeLoader() {
 			this.sWindow.spinnerNode.remove();
 		}
 
 		/**
 		 * Delete Broadcast Iframe
 		 */
-		deleteBroadcastIframe (){
+		deleteBroadcastIframe() {
 			this.iframe.broadcastNode.remove();
 		}
 
@@ -750,15 +751,15 @@
 		 * @param text
 		 * @returns {HTMLStyleElement}
 		 */
-		attachStyle (text) {
+		attachStyle(text) {
 			let style = document.createElement('style');
 
 			style.type = 'text/css';
 			style.rel = 'stylesheet';
 			style.media = 'all';
 
-			if (/WebKit|MSIE/i.test(navigator.userAgent) ) {
-				if ( style.styleSheet ) {
+			if (/WebKit|MSIE/i.test(navigator.userAgent)) {
+				if (style.styleSheet) {
 					style.styleSheet.cssText = text;
 				} else {
 					style.innerText = text;
@@ -769,6 +770,7 @@
 			document.getElementsByTagName('head')[0].appendChild(style);
 			return style;
 		}
+
 		/**
 		 * Check item class
 		 * @param node
@@ -776,7 +778,7 @@
 		 * @returns {boolean}
 		 */
 		hasClass(node, className) {
-			if(node) return new RegExp("(?:^|\\s+)" + className + "(?:\\s+|$)").test(node.className);
+			if (node) return new RegExp("(?:^|\\s+)" + className + "(?:\\s+|$)").test(node.className);
 		};
 
 		/**
@@ -787,7 +789,7 @@
 		 */
 		addClass(node, className) {
 			if (!this.hasClass(node, className)) {
-				if(node) node.className = node.className ? [node.className, className].join(' ') : className;
+				if (node) node.className = node.className ? [node.className, className].join(' ') : className;
 			}
 			return this;
 		};
@@ -800,8 +802,8 @@
 		 */
 		removeClass(node, className) {
 			if (this.hasClass(node, className)) {
-				let reg = new RegExp('(\\s|^)'+className+'(\\s|$)');
-				node.className = node.className.replace(reg,' ')
+				let reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+				node.className = node.className.replace(reg, ' ')
 			}
 			return this;
 		};
@@ -867,7 +869,7 @@
 		updateQueryStringParameter(obj) {
 			let url = window.location.search;
 
-			for(let key in obj) {
+			for (let key in obj) {
 				let re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
 				let separator = url.indexOf('?') !== -1 ? "&" : "?";
 				if (url.match(re)) {
@@ -877,7 +879,7 @@
 				}
 			}
 
-			window.history.pushState('','', url);
+			window.history.pushState('', '', url);
 		}
 
 		/**
@@ -888,7 +890,7 @@
 		removeURLParameter(obj) {
 			let url = window.location.search;
 
-			for(let key in obj) {
+			for (let key in obj) {
 				let urlparts = url.split('?');
 				if (urlparts.length >= 2) {
 
@@ -905,28 +907,30 @@
 				}
 			}
 
-			window.history.pushState('','', url);
+			window.history.pushState('', '', url);
 		}
 
 		/**
 		 * Update Url Path
 		 * @param path
 		 */
-		updateURLpath(path){
+		updateURLpath(path) {
 			window.history.pushState({}, null, path)
 		}
+
 		/**
 		 * Remove Url Path
 		 */
-		removeURLpath(){
+		removeURLpath() {
 			window.history.pushState({}, null, '/')
 		}
+
 		/**
 		 * Get type
 		 * @param obj
 		 * @returns {string}
 		 */
-		getType (obj){
+		getType(obj) {
 			return Object.prototype.toString.call(obj);
 		}
 
@@ -937,7 +941,7 @@
 		 * @param handler
 		 * @returns {function(*=): *}
 		 */
-		bind (obj, eventName, handler) {
+		bind(obj, eventName, handler) {
 			let handlerWrapper = function (event) {
 				event = event || window.event;
 				if (!event.target && event.srcElement) {
@@ -960,7 +964,7 @@
 		 * @param eventName
 		 * @param handler
 		 */
-		unbind (obj, eventName, handler) {
+		unbind(obj, eventName, handler) {
 			if (obj.removeEventListener) {
 				obj.removeEventListener(eventName, handler, false);
 			} else {
@@ -977,13 +981,13 @@
 		 * @param onFail
 		 * @returns {{_timeout: null, stop: stop}|*}
 		 */
-		waitFor (condition, callback, timeout, interval, onFail) {
+		waitFor(condition, callback, timeout, interval, onFail) {
 			let control;
 
 
 			control = {
-				_timeout : null,
-				stop : function () {
+				_timeout: null,
+				stop: function () {
 					clearTimeout(this._timeout);
 					if (onFail) {
 						onFail();
@@ -991,7 +995,7 @@
 				}
 			};
 			interval = interval || 50;
-			(function waiter () {
+			(function waiter() {
 				let conditionResult;
 
 				if (conditionResult) {
@@ -1009,20 +1013,22 @@
 
 			return control;
 		}
+
 		/**
 		 * Init events
 		 */
-		initEventListeners(){
+		initEventListeners() {
 			this.bind(this.sButton.node, 'click', this.showSWindow.bind(this));
 			this.bind(this.sButton.node, 'touchstart', this.showSWindow.bind(this));
 
 			this.bind(this.sWindow.joinNowButtonNode, 'click', this.openLoginForm.bind(this));
 			this.bind(this.sWindow.joinNowButtonNode, 'touchstart', this.openLoginForm.bind(this));
 		}
+
 		/**
 		 * Init window
 		 */
-		init(){
+		init() {
 			this.setupStyles();
 			this.initEventListeners();
 			this.createBroadcastIframe();
